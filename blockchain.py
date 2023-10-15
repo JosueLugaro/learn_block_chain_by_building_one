@@ -11,6 +11,11 @@ class BlockChain(object):
     # Create the genesis block
     self.new_block(previous_hash=1, proof=100)
 
+  @property
+  def last_block(self):
+    # Returns the last block in the chain
+    return self.chain[-1]
+
   def new_block(self, proof: int, previous_hash: Union[None, int] = None) -> dict:
     # Creates a new block and adds it to the chain
     block = {
@@ -37,9 +42,4 @@ class BlockChain(object):
   @staticmethod
   def hash(block):
     # Hashes a block
-    ...
-
-  @property
-  def last_block(self):
-    # Returns the last block in the chain
     ...
