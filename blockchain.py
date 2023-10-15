@@ -7,9 +7,14 @@ class BlockChain(object):
     # Creates a new block and adds it to the chain
     ...
 
-  def new_transactions(self):
+  def new_transactions(self, sender: str, recipient: str, amount: int) -> int:
     # Adds a new transaction to the list of transactions
-    ...
+    self.current_transactions.append({
+      'sender': sender,
+      'recipient': recipient,
+      'amount': amount
+    })
+    return self.last_block['index'] + 1
 
   @staticmethod
   def hash(block):
