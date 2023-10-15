@@ -40,6 +40,7 @@ class BlockChain(object):
     return self.last_block['index'] + 1
 
   @staticmethod
-  def hash(block):
+  def hash(block: dict) -> str:
     # Hashes a block
-    ...
+    block_string = json.dumps(block, sort_keys=True).encode()
+    return hashlib.sha256(block_string).hexdigest()
